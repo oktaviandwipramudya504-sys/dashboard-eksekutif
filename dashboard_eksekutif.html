@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogja Coffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Panel & Card Hitam Pekat dengan Efek Glassy */
+        .glass-panel {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+        
+        .glass-card {
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            border-color: rgba(245, 158, 11, 0.5);
+            box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.25);
+        }
+
+        /* Animasi Latar Belakang Bergerak Halus */
+        @keyframes floatBubble {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        .animate-bubble-1 {
+            animation: floatBubble 8s ease-in-out infinite;
+        }
+        .animate-bubble-2 {
+            animation: floatBubble 12s ease-in-out infinite reverse;
+        }
+    </style>
+</head>
+<body class="bg-black text-slate-100 font-sans antialiased overflow-hidden relative selection:bg-amber-500 selection:text-black">
+
+    <!-- Latar Belakang Efek Cahaya Bergerak (Ambient Glow) -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none animate-bubble-1"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none animate-bubble-2"></div>
+
+    <div class="flex h-screen relative z-10">
+        <!-- SIDEBAR -->
+        <aside class="w-64 glass-panel border-r border-white/10 flex flex-col">
+            <div class="p-5 text-lg font-bold text-white flex items-center gap-3 border-b border-white/10">
+                <i class="fa-solid fa-database text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.5)]"></i> COFFEE JOGJA
+            </div>
+            <nav class="flex-1 p-4 space-y-2 text-sm">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 text-white font-medium shadow-lg shadow-amber-600/20 transition-all"><i class="fa-solid fa-chart-pie"></i> Overview </a>
+            </nav>
+            <div class="p-4 border-t border-white/10 flex items-center gap-3 bg-black/40">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-500 to-amber-300 flex items-center justify-center font-bold text-black text-sm shadow-md">OP</div>
+                <div>
+                    <div class="text-sm font-bold text-white">Oktavian Dwi Pramudya</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- KONTEN UTAMA -->
+        <div class="flex-1 flex flex-col overflow-y-auto bg-black">
+            <header class="glass-panel border-b border-white/10 h-16 flex items-center justify-between px-6 sticky top-0 z-20">
+                <div class="flex items-center gap-4 text-sm font-semibold text-slate-300">
+                    DATABASE: <span class="bg-emerald-900/60 backdrop-blur border border-emerald-500/40 text-emerald-300 px-3 py-1.5 rounded-full text-xs font-bold shadow-lg shadow-emerald-950">coffee jogja</span>
+                </div>
+            </header>
+
+            <main class="p-6 space-y-6">
+                <!-- KARTU METRIK UTAMA BERDASARKAN QUERY SQL -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="glass-card p-4 rounded-2xl relative overflow-hidden group">
+                        <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/20 transition-all"></div>
+                        <span class="text-xs text-slate-400 font-medium tracking-wide">Total Entitas Kafe</span>
+                        <h3 class="text-xl font-bold text-white mt-1 group-hover:text-amber-400 transition-colors">189 Kafe</h3>
+                        <span class="text-[10px] text-emerald-400 mt-1 block"></span>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl relative overflow-hidden group">
+                        <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-emerald-500/10 rounded-full blur-xl group-hover:bg-emerald-500/20 transition-all"></div>
+                        <span class="text-xs text-slate-400 font-medium tracking-wide">Total Ulasan Mentah</span>
+                        <h3 class="text-xl font-bold text-white mt-1 group-hover:text-emerald-400 transition-colors">2.241 Baris</h3>
+                        <span class="text-[10px] text-emerald-400 mt-1 block"></span>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl relative overflow-hidden group">
+                        <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-blue-500/10 rounded-full blur-xl group-hover:bg-blue-500/20 transition-all"></div>
+                        <span class="text-xs text-slate-400 font-medium tracking-wide">Pemetaan Kecamatan</span>
+                        <h3 class="text-xl font-bold text-white mt-1 group-hover:text-blue-400 transition-colors">10 Wilayah Utama</h3>
+                        <span class="text-[10px] text-emerald-400 mt-1 block"></span>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl relative overflow-hidden group">
+                        <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/20 transition-all"></div>
+                        <span class="text-xs text-slate-400 font-medium tracking-wide">Rasio Kepuasan Positif</span>
+                        <h3 class="text-xl font-bold text-amber-400 mt-1 drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]">91.6%</h3>
+                        <span class="text-[10px] text-emerald-400 mt-1 block"></span>
+                    </div>
+                </div>
+
+                <!-- TABEL ANALISIS KECAMATAN BERDASARKAN SQL -->
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h2 class="text-lg font-bold text-white tracking-wide">Analisis Agregasi per Kecamatan</h2>
+                            <p class="text-xs text-slate-400 mt-0.5">Berdasarkan pembersihan data alamat</p>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="border-b border-white/10 text-xs text-slate-400 uppercase tracking-wider">
+                                    <th class="pb-3 font-semibold">Kecamatan / Wilayah</th>
+                                    <th class="pb-3 font-semibold">Jumlah Tempat</th>
+                                    <th class="pb-3 font-semibold">Total Ulasan</th>
+                                    <th class="pb-3 font-semibold text-right">Rating Berbobot / Rata-rata</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5 text-slate-300">
+                                <tr class="hover:bg-white/5 transition-colors duration-200">
+                                    <td class="py-3.5 font-medium text-white flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Depok (Condongcatur dll)
+                                    </td>
+                                    <td class="py-3.5">45 Kafe</td>
+                                    <td class="py-3.5">680 Ulasan</td>
+                                    <td class="py-3.5 text-right font-bold text-amber-400">4.72</td>
+                                </tr>
+                                <tr class="hover:bg-white/5 transition-colors duration-200">
+                                    <td class="py-3.5 font-medium text-white flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Umbulharjo
+                                    </td>
+                                    <td class="py-3.5">32 Kafe</td>
+                                    <td class="py-3.5">450 Ulasan</td>
+                                    <td class="py-3.5 text-right font-bold text-amber-400">4.65</td>
+                                </tr>
+                                <tr class="hover:bg-white/5 transition-colors duration-200">
+                                    <td class="py-3.5 font-medium text-white flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Mergangsan
+                                    </td>
+                                    <td class="py-3.5">28 Kafe</td>
+                                    <td class="py-3.5">390 Ulasan</td>
+                                    <td class="py-3.5 text-right font-bold text-amber-400">4.58</td>
+                                </tr>
+                                <tr class="hover:bg-white/5 transition-colors duration-200">
+                                    <td class="py-3.5 font-medium text-white flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Tegalrejo & Wirobrajan
+                                    </td>
+                                    <td class="py-3.5">24 Kafe</td>
+                                    <td class="py-3.5">290 Ulasan</td>
+                                    <td class="py-3.5 text-right font-bold text-amber-400">4.50</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
