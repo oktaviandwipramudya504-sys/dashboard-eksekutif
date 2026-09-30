@@ -32,5 +32,6 @@ Needs Improvement ($< 4.0$ rating) $\rightarrow$ 12 Cafes (Requiring targeted op
 Interactive Dashboard & Presentation
 Dashboard: Built with pure HTML5 and Tailwind CSS, featuring an elegant dark theme and glassmorphism styling (dashboard_eksekutif.html).
 Presentation Deck: A complete executive walkthrough is available in the repository as COFFEE JOGJA.pdf.
+
 Author: 
 Oktavian Dwi Pramudya 
